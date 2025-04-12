@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Étape</title>
+    <link rel="stylesheet" href="style7.css">
+
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-image: url('image_blanc.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <span>🏠 / Étape</span>
+    </nav>
+
+    <div class="container">
+        <h2>Informations générales</h2>
+
+        <form action="#" method="POST">
+            <!-- Champ Numéro d'ordre -->
+            <div class="form-group">
+                <label for="numero_ordre">Numéro d'ordre :</label>
+                <input type="text" id="numero_ordre" name="numero_ordre" placeholder="Entrez le numéro d'ordre" required>
+            </div>
+
+            <!-- Champ Direction -->
+            <div class="form-group">
+                <label for="direction">Direction :</label>
+                <select id="direction" name="direction" required>
+                    <option value="">Sélectionner la direction</option>
+                    <option value="direction1">1 Directeur General </option>
+                    <option value="direction2">2 Direction Administratif et Financiere</option>
+                    <option value="direction3">3 Directeur Financiere</option>
+                    <option value="direction4">4 Controle de Gestion</option>
+                    <option value="direction5">5 Directeur des Ressources Humaine </option>
+                    <option value="direction6">6 Ressources Humaine </option>
+                    <option value="direction7">7 Directeur des Relations Clients </option>
+                    <option value="direction8">8 Chef de Division </option>
+                    <option value="direction9">9 Chef de Services </option>
+                </select>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="button-group">
+                <button type="submit" class="btn btn-enregistrer">✔ Enregistrer</button>
+                <button  type="button" class="btn btn-liste" onclick="window.location.href='page8.html'">✔ Liste des directions</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>© Tous droits réservés</p>
+    </footer>
+</body>
+</html>

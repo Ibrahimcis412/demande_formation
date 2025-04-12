@@ -1,0 +1,102 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fil d'Ariane */
+.breadcrumb {
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Titre */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Bouton Nouvelle Étape */
+.btn-nouvelle-etape {
+    background-color: #f37021;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-nouvelle-etape:hover {
+    background-color: #d95d15;
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* En-tête du tableau */
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Lignes alternées */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Lien sur le numéro d'ordre */
+td a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Bouton d'édition */
+.edit-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}

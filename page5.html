@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évaluation à Chaud des Formations</title>
+    <link rel="stylesheet" href="style5.css">
+    <style>
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #f0f0f0;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #e0e0e0;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url('image_blanc.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <a href="javascript:history.back()" class="back-button">Retour</a>
+
+    <!-- <nav class="navbar">
+        <ul>
+            <li><a href="#">LISTES</a></li>
+            <li><a href="#">DEMANDE</a></li>
+            <li><a href="#">EVALUATIONS</a></li>
+            <li><a href="#">MES FORMATIONS</a></li>
+        </ul>
+    </nav> -->
+
+    <div class="breadcrumb">
+        <span>🏠 / Évaluation à Chaud</span>
+    </div>
+
+    <div class="container">
+        <h2>FORMULAIRE D'ÉVALUATION À CHAUD DES FORMATIONS</h2>
+
+        <!-- <label for="formation">Sélectionner la formation :</label>
+        <select id="formation" name="formation">
+            <option value="">-- Sélectionner --</option>
+            <option value="formation1">Formation 1</option>
+            <option value="formation2">Formation 2</option>
+        </select> -->
+
+        <!-- Section Organisation -->
+        <h3>ORGANISATION</h3>
+        <form action="#" method="POST" class="formulaire" onsubmit="return redirectToPage6(event)">
+            <table>
+                <tr>
+                    <th>Critères</th>
+                    <th>Pas du tout d'accord</th>
+                    <th>Pas d'accord</th>
+                    <th>Plutôt pas d'accord</th>
+                    <th>Plutôt d'accord</th>
+                    <th>D'accord</th>
+                    <th>Tout à fait d'accord</th>
+                </tr>
+
+                <!-- Critères Organisation -->
+                <tr>
+                    <td>L'information préalable est suffisante</td>
+                    <td><input type="radio" name="info_prealable" value="1"></td>
+                    <td><input type="radio" name="info_prealable" value="2"></td>
+                    <td><input type="radio" name="info_prealable" value="3"></td>
+                    <td><input type="radio" name="info_prealable" value="4"></td>
+                    <td><input type="radio" name="info_prealable" value="5"></td>
+                    <td><input type="radio" name="info_prealable" value="6"></td>
+                </tr>
+                <tr>
+                    <td>La date du stage est bien fixée</td>
+                    <td><input type="radio" name="date_stage" value="1"></td>
+                    <td><input type="radio" name="date_stage" value="2"></td>
+                    <td><input type="radio" name="date_stage" value="3"></td>
+                    <td><input type="radio" name="date_stage" value="4"></td>
+                    <td><input type="radio" name="date_stage" value="5"></td>
+                    <td><input type="radio" name="date_stage" value="6"></td>
+                </tr>
+                <tr>
+                    <td>Les horaires du stage sont adaptés</td>
+                    <td><input type="radio" name="horaires_stage" value="1"></td>
+                    <td><input type="radio" name="horaires_stage" value="2"></td>
+                    <td><input type="radio" name="horaires_stage" value="3"></td>
+                    <td><input type="radio" name="horaires_stage" value="4"></td>
+                    <td><input type="radio" name="horaires_stage" value="5"></td>
+                    <td><input type="radio" name="horaires_stage" value="6"></td>
+                </tr>
+
+                <!-- Section Animation -->
+                <h3>ANIMATION</h3>
+                <tr>
+                    <td>La durée de ce stage est adaptée</td>
+                    <td><input type="radio" name="duree_stage" value="1"></td>
+                    <td><input type="radio" name="duree_stage" value="2"></td>
+                    <td><input type="radio" name="duree_stage" value="3"></td>
+                    <td><input type="radio" name="duree_stage" value="4"></td>
+                    <td><input type="radio" name="duree_stage" value="5"></td>
+                    <td><input type="radio" name="duree_stage" value="6"></td>
+                </tr>
+                <tr>
+                    <td>L'ambiance du stage était bonne</td>
+                    <td><input type="radio" name="ambiance_stage" value="1"></td>
+                    <td><input type="radio" name="ambiance_stage" value="2"></td>
+                    <td><input type="radio" name="ambiance_stage" value="3"></td>
+                    <td><input type="radio" name="ambiance_stage" value="4"></td>
+                    <td><input type="radio" name="ambiance_stage" value="5"></td>
+                    <td><input type="radio" name="ambiance_stage" value="6"></td>
+                </tr>
+            </table>
+
+            <button type="submit" class="submit-btn" href="page6.html">Soumettre l'Évaluation</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© Tous droits réservés</p>
+    </footer>
+
+    <script>
+        function redirectToPage6(event) {
+            event.preventDefault(); // Empêche la soumission par défaut du formulaire
+            window.location.href = 'page2.html'; // Redirige vers page6.html
+            return false; // Empêche la soumission par défaut du formulaire
+        }
+    </script>
+</body>
+</html>

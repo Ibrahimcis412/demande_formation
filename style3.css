@@ -1,0 +1,80 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #4CAF50, #2E8B57);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Conteneur du formulaire */
+.login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    text-align: center;
+}
+
+/* Titre */
+h2 {
+    color: #2E8B57;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Champs de saisie */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    height: 150px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #2E8B57;
+    box-shadow: 0 0 8px rgba(46, 139, 87, 0.5);
+    outline: none;
+}
+
+/* Bouton de soumission */
+.btn {
+    background-color: #2E8B57;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #6b411e;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

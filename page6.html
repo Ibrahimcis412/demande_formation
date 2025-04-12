@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évaluation à Froid - Bénéficiaire de Stage</title>
+    <link rel="stylesheet" href="style6.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('image_blanc.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <nav class="navbar">
+        <ul>
+            <li><a href="#">LISTES</a></li>
+            <li><a href="#">DEMANDE</a></li>
+            <li><a href="#">EVALUATIONS</a></li>
+            <li><a href="#">MES FORMATIONS</a></li>
+        </ul>
+    </nav> -->
+
+    <div class="breadcrumb">
+        <span>🏠 / ÉVALUATION À FROID</span>
+    </div>
+
+    <div class="container">
+        <h2>Questionnaire d'évaluation d'impact à usage du bénéficiaire de stage</h2>
+
+        <!-- Informations sur la formation -->
+        <h3>INFORMATIONS</h3>
+        <label for="formation">Sélectionner la formation :</label>
+        <select id="formation" name="formation" required>
+            <option value="">-- Sélectionner --</option>
+            <option value="formation1">Formation 1</option>
+            <option value="formation2">Formation 2</option>
+            <option value="formation3">Formation 3</option>
+        </select>
+
+        <!-- Section Acquisitions -->
+        <h3>AQUISITIONS</h3>
+        <form action="#" method="POST">
+            <div class="question">
+                <label for="objectif_stage">1. Quels étaient les objectifs de votre stage ?</label>
+                <textarea id="objectif_stage" name="objectif_stage" rows="4" required></textarea>
+            </div>
+
+            <div class="question">
+                <label for="plan_action">2. Quel était le plan d'action retenu pour mettre en œuvre vos acquisitions ?</label>
+                <textarea id="plan_action" name="plan_action" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Soumettre le Questionnaire</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© Tous droits réservés</p>
+    </footer>
+</body>
+</html>

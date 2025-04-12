@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Étapes</title>
+    <link rel="stylesheet" href="style8.css">
+
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-image: url('image_blanc.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <!-- Fil d'Ariane -->
+    <nav class="breadcrumb">
+        <span>🏠 / Liste des Étapes</span>
+    </nav>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <h2>Liste des Étapes</h2>
+
+        <!-- Bouton Nouvelle Étape -->
+        <button class="btn btn-nouvelle-etape" onclick="window.location.href='page9.html'">✔ Nouvelle étape</button>
+
+        <!-- Tableau des étapes -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro d'Ordre ⬍</th>
+                    <th>Direction ⬍</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">1</a></td>
+                    <td>Directeur General (DG) </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">2</a></td>
+                    <td>Direction Administratif et Financiere (DAF) </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">3</a></td>
+                    <td>Direction Financiere (DF) </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">4</a></td>
+                    <td>Controle de Gestion </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">5</a></td>
+                    <td>Direction Ressources Humaine (DRH) </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">6</a></td>
+                    <td>Ressources Humaine (RH) </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">7</a></td>
+                    <td>Direction Relations Clients (DRC) </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">8</a></td>
+                    <td>Chef DE Division </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+                <tr>
+                    <td><a href="#">9</a></td>
+                    <td>chef de Services </td>
+                    <td><button class="edit-btn">✏️</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© Tous droits réservés</p>
+    </footer>
+</body>
+</html>

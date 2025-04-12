@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la Formation</title>
+    <link rel="stylesheet" href="style11.css">
+</head>
+<body>
+    <!-- Titre et boutons -->
+    <div class="header">
+        <h1>Détails de la Formation</h1>
+        <div class="buttons">
+            <!-- <a href="page2.php" class="btn">Retour</a> -->
+            <a href="page1.php" class="btn">Déconnexion</a>
+            <a href="page2.php" class="btn">Accueil</a>
+        </div>
+    </div>
+
+    <!-- Zone avec Nom, Prénom, et Intitulé de la demande -->
+    <div class="form-container">
+        <form action="traitement.php" method="POST">
+            <div class="input-group">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="input-group">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="input-group">
+                <label for="demande">Intitulé de la demande :</label>
+                <input type="text" id="demande" name="demande" required>
+            </div>
+            <div class="buttons">
+                <button type="submit" name="action" value="refuser" class="btn-refuser">Refuser la demande </button>
+                <button type="submit" name="action" value="valider" class="btn-valider">Valider la demande </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
