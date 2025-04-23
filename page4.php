@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style4.css">
 </head>
 <body>
-    <div class="breadcrumb">
+    <!-- <div class="breadcrumb">
         <span>🏠 / Liste des Demandes</span>
-    </div>
+    </div> -->
 
     <div class="container">
         <h2>Liste des Demandes</h2>
@@ -32,9 +32,9 @@
             </tbody>
         </table>
     </div>
-
+<!-- 
     <footer>
         <p>© Tous droits réservés</p>
-    </footer>
+    </footer> -->
 </body>
 </html>

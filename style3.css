@@ -1,31 +1,15 @@
-/* Style général */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #4CAF50, #2E8B57);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    background: url('image_blanc.JPEG') no-repeat center center fixed !important;
+    background-size: cover !important;
 }
 
-/* Conteneur du formulaire */
-.login-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 450px;
-    text-align: center;
-}
-
-/* Titre */
+/* Centrer le titre */
 h2 {
     color: #2E8B57;
     margin-bottom: 20px;
     font-size: 24px;
+    text-align: center; /* Centre le texte horizontalement */
 }
-
 /* Champs de saisie */
 .input-group {
     margin-bottom: 15px;
@@ -35,18 +19,20 @@ h2 {
 
 .input-group label {
     font-weight: bold;
-    color: #333;
+    color: #333333;
     display: block;
     margin-bottom: 5px;
 }
 
 .input-group input, .input-group textarea {
-    width: 100%;
+    width: 100%; /* Prend toute la largeur disponible */
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
+    background-color: #f0f0f0; /* Fond gris clair */
     transition: all 0.3s ease-in-out;
+    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
 }
 
 .input-group input:focus, .input-group textarea:focus {
@@ -55,7 +41,7 @@ h2 {
     outline: none;
 }
 
-/* Bouton de soumission */
+/* Centrer le bouton */
 .btn {
     background-color: #2E8B57;
     color: white;
@@ -65,10 +51,13 @@ h2 {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s ease-in-out;
+    display: block; /* Transforme le bouton en bloc */
+    margin: 20px auto; /* Centre le bouton horizontalement */
 }
 
+
 .btn:hover {
-    background-color: #6b411e;
+    background-color: blue;
 }
 
 /* Responsive */

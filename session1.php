@@ -1,52 +1,67 @@
 <?php
 session_start();
 
-// Configuration de la base de données
-$host = "localhost";
-$dbname = "automatisation";
-$username = "root"; // Modifier si nécessaire
-$password = ""; // Modifier si nécessaire
-
-try {
-    // Connexion à la base de données via PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion : " . $e->getMessage());
+// Connexion à la base de données
+$conn = new mysqli("localhost", "root", "", "automatisation");
+if ($conn->connect_error) {
+    die("Connexion échouée : " . $conn->connect_error);
 }
 
-// Vérifier si le formulaire de connexion a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
-    // Récupérer les informations de connexion
+// Vérification de la connexion (login)
+if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
     $email = $_POST['email'];
     $mot_de_passe = $_POST['mot_de_passe'];
 
-    // Vérifier les informations de connexion
-    $query = "SELECT matricule, nom, prenom, nom_poste 
-              FROM salarier 
-              WHERE email = :email AND mot_de_passe = :mot_de_passe";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute(['email' => $email, 'mot_de_passe' => $mot_de_passe]);
-    $employe = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sql = "SELECT matricule, email FROM employe WHERE email = ? AND mot_de_passe = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $email, $mot_de_passe);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($employe) {
-        // Enregistrer les informations de l'employé dans la session
+    if ($result->num_rows === 1) {
+        $employe = $result->fetch_assoc();
+        $_SESSION['utilisateur'] = $email;
         $_SESSION['matricule'] = $employe['matricule'];
-        $_SESSION['nom'] = $employe['nom'];
-        $_SESSION['prenom'] = $employe['prenom'];
-        $_SESSION['poste'] = $employe['nom_poste'];
-        
-        // Rediriger vers la page de navigation
+        $_SESSION['email'] = $employe['email'];
         header("Location: page2.php");
         exit();
     } else {
-        // Rediriger vers la page de connexion avec un message d'erreur
-        header("Location: index.php?error=1");
+        header("Location: page1.php?erreur=1");
         exit();
     }
-} else {
-    // Si on accède directement à ce script sans soumission, rediriger vers le formulaire de connexion
-    header("Location: index.php");
-    exit();
 }
+
+// Insertion d'une demande de formation
+if (isset($_POST['situation']) && isset($_POST['objectifs'])) {
+    $situation = $_POST['situation'];
+    $objectifs = $_POST['objectifs'];
+    $actions = $_POST['actions'];
+    $indicateur = $_POST['indicateur'];
+    $intitule = $_POST['intitule'];
+    $description = $_POST['description'];
+    $contenu = $_POST['contenu'];
+    $responsable = $_POST['responsable']; // toujours récupéré mais non utilisé
+    $date = date('Y-m-d H:i:s');
+    $matricule_emp = $_SESSION['matricule'];
+
+    // Nouvelle requête sans insertion du responsable hiérarchique
+    $sql = "INSERT INTO demande_formation (date_demande, situation, objectifs, actions, indicateur, intitule, description, contenu, matricule_emp)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssssssss", $date, $situation, $objectifs, $actions, $indicateur, $intitule, $description, $contenu, $matricule_emp);
+
+    if ($stmt->execute()) {
+        // $_SESSION['nom_superieur'] = $responsable; // désactivé à la demande du patron
+
+        include 'envoi_email_validation.php';
+        envoyerMailValidation();
+
+        header("Location: page2.php?success=1");
+        exit();
+    } else {
+        echo "Erreur lors de l'insertion : " . $conn->error;
+    }
+}
+
+$conn->close();
 ?>

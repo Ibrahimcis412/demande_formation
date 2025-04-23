@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire Étape</title>
     <link rel="stylesheet" href="style7.css">
-
-    <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-image: url('image_blanc.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-    </style>
 </head>
 <body>
     <nav class="breadcrumb">
@@ -29,7 +14,7 @@
     <div class="container">
         <h2>Informations générales</h2>
 
-        <form action="#" method="POST">
+        <form action="traitement.php" method="POST">
             <!-- Champ Numéro d'ordre -->
             <div class="form-group">
                 <label for="numero_ordre">Numéro d'ordre :</label>
@@ -53,10 +38,9 @@
                 </select>
             </div>
 
-            <!-- Boutons d'action -->
+            <!-- Bouton Enregistrer -->
             <div class="button-group">
                 <button type="submit" class="btn btn-enregistrer">✔ Enregistrer</button>
-                <button  type="button" class="btn btn-liste" onclick="window.location.href='page8.html'">✔ Liste des directions</button>
             </div>
         </form>
     </div>

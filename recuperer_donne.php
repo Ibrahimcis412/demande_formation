@@ -1,5 +1,6 @@
 <?php
-// Connexion à la base de données
+session_start();
+
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=automatisation', 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -8,48 +9,58 @@ try {
     exit;
 }
 
-// Requête SQL pour récupérer toutes les demandes de formation
-$query = "
-    SELECT 
-        df.identifiant AS Id,  // Utiliser "identifiant" au lieu de "id"
-        df.intitule_demande AS Intitule, 
-        s.nom_salarie AS Demandeur, 
-        p.id_poste AS Etape, 
-        p.nom_poste AS Niveau
-    FROM 
-        demande_formation df
-    JOIN 
-        salarier s ON df.id_salarie = s.id_salarie
-    JOIN 
-        poste p ON s.id_poste = p.id_poste
-";
+$etapes = [
+    'ingenieur developpeur' => 9,
+    'chef de service' => 8,
+    'chef de division' => 7,
+    'directeur systeme information' => 6,
+    'ressource humaine' => 5,
+    'directeur ressource humaine' => 4,
+    'controle gestion' => 3,
+    'directeur administratif financiere' => 2,
+    'directeur general' => 1
+];
 
-// Exécution de la requête
-$stmt = $pdo->query($query);
-
-// Affichage des résultats sous forme de tableau HTML
-echo "<h1>Liste des Demandes de Formation</h1>";
-echo "<table border='1'>
-        <tr>
-            <th>ID</th>
-            <th>Intitulé</th>
-            <th>Demandeur</th>
-            <th>Etape</th>
-            <th>Niveau</th>
-            <th>Actions</th>
-        </tr>";
-
-// Parcours des résultats
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo "<tr>";
-    echo "<td>" . $row['Id'] . "</td>";
-    echo "<td>" . $row['Intitule'] . "</td>";
-    echo "<td>" . $row['Demandeur'] . "</td>";
-    echo "<td>" . $row['Etape'] . "</td>";
-    echo "<td>" . $row['Niveau'] . "</td>";
-    echo "<td><a href='page4.php?id_demande=" . $row['Id'] . "'>Voir</a></td>";
-    echo "</tr>";
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+} else {
+    echo "L'email de l'utilisateur n'est pas défini dans la session.";
+    exit;
 }
 
-echo "</table>";
+$sql = "
+    SELECT 
+        df.id_demande AS id, 
+        df.intitule, 
+        CONCAT(emp.nom, ' ', emp.prenom) AS demandeur, 
+        df.etape_validation, 
+        srv.nom_service AS niveau
+    FROM demande_formation df
+    JOIN employe emp ON df.matricule_emp = emp.matricule
+    JOIN service srv ON emp.id_service = srv.id_service
+    WHERE emp.email = :email
+";
+
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+
+// Vérifier s’il y a des résultats
+if ($stmt->rowCount() > 0) {
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $niveau = strtolower($row['niveau'] ?? ''); // Éviter NULL
+        $etape = $etapes[$niveau] ?? 'N/A';
+
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['id'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['intitule'] ?? '') . "</td>";
+        echo "<td>" . htmlspecialchars($row['demandeur'] ?? '') . "</td>";
+        echo "<td>" . $etape . "</td>";
+        echo "<td>" . htmlspecialchars($row['niveau'] ?? '') . "</td>";
+        echo "<td><a href='page4.php?id_demande=" . htmlspecialchars($row['id'] ?? '') . "'>Voir</a></td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='6' style='text-align:center; color: red;'>Vous n'avez pas effectué de demande de formation.</td></tr>";
+}
 ?>

@@ -1,5 +1,4 @@
-/* Style général */
-/* body {
+body {
     font-family: Arial, sans-serif;
     background-image: url('image_bleu.jpeg');
     background-size: cover;
@@ -10,25 +9,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+    flex-direction: column;
+}
 
-/* Conteneur du formulaire */
 .login-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px;
 }
 
-/* Titre */
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Champs de saisie */
 .input-group {
     margin-bottom: 15px;
 }
@@ -36,22 +27,41 @@ h2 {
 .input-group input {
     width: 100%;
     padding: 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
-/* Bouton de connexion */
 .btn {
-    background-color: #007bff;
+    width: 100%;
+    background-color: #007BFF;
     color: white;
-    padding: 10px 20px;
+    padding: 12px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #00b30f;
+    background-color: #0056b3;
 }
+
+.error-message {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4d4f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 0 0 8px 8px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+

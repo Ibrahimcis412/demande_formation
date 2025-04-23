@@ -111,10 +111,12 @@
             </tbody>
         </table>
     </div>
+    <a href="page2.php" class="btn-retour">← Retour à l'accueil</a>
+
 
     <!-- Pied de page -->
-    <footer>
+    <!-- <footer>
         <p>© Tous droits réservés</p>
-    </footer>
+    </footer> -->
 </body>
 </html>

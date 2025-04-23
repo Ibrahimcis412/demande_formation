@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation de Demande de Formation</title>
+    <link rel="stylesheet" href="style13.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Validation de la Demande de Formation</h2>
+
+        <form action="traitement_validation.php" method="POST">
+            <div class="ligne">
+                <div class="champ">
+                    <label>Nom :</label>
+                    <input type="text" name="Nom du demandeur" value="" readonly>
+                </div>
+                <div class="champ">
+                    <label>Prénom :</label>
+                    <input type="text" name="Prenom du demandeur" value="" readonly>
+                </div>
+            </div>
+
+            <div class="ligne">
+                <div class="champ">
+                    <label>Intitulé :</label>
+                    <input type="text" name="Intitule de la demande" value="" readonly>
+                </div>
+                <div class="champ">
+                    <label>Date de la demande :</label>
+                    <input type="text" name="date_demande" value="" readonly>
+                </div>
+            </div>
+
+            <div class="ligne boutons">
+                <button type="submit" name="action" value="Accepter" class="btn accepter">Accepter</button>
+                <button type="submit" name="action" value="Refuser" class="btn refuser">Refuser</button>
+            </div>
+
+            <!-- Zone de signature électronique -->
+            <div class="signature-section">
+                <label>Signature électronique :</label>
+                <canvas id="signature" width="600" height="150"></canvas>
+                <div class="ligne boutons">
+                    <button type="button" onclick="clearSignature()" class="btn clear-btn">Effacer</button>
+                    <button type="button" onclick="window.location.href='page2.php'" class="btn retour-btn">Retour</button>
+
+                </div>
+            </div>
+        </form>
+
+        <script>
+            const canvas = document.getElementById("signature");
+            const ctx = canvas.getContext("2d");
+            let isDrawing = false;
+
+            canvas.addEventListener("mousedown", (e) => {
+                isDrawing = true;
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            });
+
+            canvas.addEventListener("mousemove", (e) => {
+                if (isDrawing) {
+                    ctx.lineTo(e.offsetX, e.offsetY);
+                    ctx.stroke();
+                }
+            });
+
+            canvas.addEventListener("mouseup", () => {
+                isDrawing = false;
+            });
+
+            canvas.addEventListener("mouseleave", () => {
+                isDrawing = false;
+            });
+
+            function clearSignature() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        </script>
+        
+    </div>
+</body>
+</html>

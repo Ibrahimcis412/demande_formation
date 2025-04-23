@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Demande de Formation</h2>
-        <form action="traitement.php" method="POST">
+        <form action="session1.php" method="POST">
             <div class="input-group">
                 <label for="situation">Situation :</label>
                 <textarea id="situation" name="situation" required></textarea>
@@ -39,7 +39,7 @@
                 <textarea id="contenu" name="contenu" required></textarea>
             </div>
             <div class="input-group">
-                <label for="responsable">Responsable :</label>
+                <label for="responsable">Responsable Hiérachique Direct :</label>
                 <input type="text" id="responsable" name="responsable" required>
             </div>
             <button type="submit" class="btn">Soumettre</button>
