@@ -1,0 +1,4 @@
+config.php
+db_connexion.php
+.env
+*.log
